@@ -1,9 +1,20 @@
 import Image from "next/image"
 import Link from "next/link";
-export default function Card({ src, href }: { src: string, href: string }) {
+
+type Props = {
+    src: string;
+    href: string;
+    name: string;
+}
+export default function Card({ src, href, name }: Props) {
     return (
         <div className="rounded-lg w-fit shadow-sm p-2 bg-white">
-            <Link href={href}>
+            <Link href={{
+                pathname: href,
+                query: {
+                    name: name
+                }
+            }}>
                 <Image
                     src={src}
                     alt="image"

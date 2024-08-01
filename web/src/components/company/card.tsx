@@ -7,10 +7,11 @@ type Props = {
     href: string;
     src: string;
     title: string;
-    detail: React.FC;
+    content: string;
+detail: React.FC<{ title: string; content: string }>; // Adjusted type
 };
 
-export default function CardComponent({ href, src, title, detail: Detail }: Props) {
+export default function CardComponent({ href, src, title, content, detail: Detail }: Props) {
     return (
         <div className="d-flex text-center">
             <Card className="w-[270px]" isPressable isHoverable radius="sm">
@@ -22,7 +23,7 @@ export default function CardComponent({ href, src, title, detail: Detail }: Prop
                         <div className="text-start font-bold">{title}</div>
                         <div className="flex gap-2 justify-center align-middle mt-2">
                             <Link href={href} target="_blank"><Button size="sm" radius="lg" className="bg-[#388da8] text-white">Visit</Button></Link>
-                            <Detail />
+                            <Detail title={title} content={content} />
                             <Button size="sm" radius="lg" disabled>Tutorial</Button>
                         </div>
                     </div>

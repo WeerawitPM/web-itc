@@ -1,7 +1,7 @@
 "use client"
 import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Button, useDisclosure } from "@chakra-ui/react"
 import { Button as NextBtn, Divider } from "@nextui-org/react"
-export default function Detail1() {
+export default function Detail() {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (
