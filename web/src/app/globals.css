@@ -42,3 +42,39 @@
 .accent-color {
   background-color: var(--accent-color);
 }
+
+h1 {
+  font-size: 2em; /* 32px if the base font size is 16px */
+  font-weight: bold;
+  margin-top: 0.67em;
+}
+
+h2 {
+  font-size: 1.5em; /* 24px if the base font size is 16px */
+  font-weight: bold;
+  margin-top: 0.75em;
+}
+
+h3 {
+  font-size: 1.17em; /* 18.72px if the base font size is 16px */
+  font-weight: bold;
+  margin-top: 0.83em;
+}
+
+h4 {
+  font-size: 1em; /* 16px if the base font size is 16px */
+  font-weight: bold;
+  margin-top: 1.12em;
+}
+
+h5 {
+  font-size: 0.83em; /* 13.28px if the base font size is 16px */
+  font-weight: bold;
+  margin-top: 1.5em;
+}
+
+h6 {
+  font-size: 0.75em; /* 12px if the base font size is 16px */
+  font-weight: bold;
+  margin-top: 1.67em;
+}

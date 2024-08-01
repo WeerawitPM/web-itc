@@ -4,10 +4,19 @@ import Detail from "./detail";
 import { Metadata } from "next";
 import axios from "axios";
 
-export const metadata: Metadata = {
-    title: "Company List",
-    description: "List of companies",
-};
+export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+    const data = await fetchData();
+    const website = data.find((website: { attributes: { company: { data: { id: number } } } }) =>
+      website.attributes.company?.data?.id === Number(params.id)
+    );
+  
+    const name = website ? website.attributes.company.data.attributes.name : "Company";
+  
+    return {
+      title: `${name}`,
+      description: `Details about ${name}`,
+    };
+  };
 
 const fetchData = async () => {
     try {

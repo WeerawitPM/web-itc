@@ -1,6 +1,8 @@
 "use client"
 import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Button, useDisclosure } from "@chakra-ui/react"
-import { Button as NextBtn, Divider } from "@nextui-org/react"
+import { Button as NextBtn } from "@nextui-org/react"
+import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 
 type Props = {
     title: string;
@@ -20,20 +22,7 @@ export default function Detail({ title, content }: Props) {
                     <ModalHeader>Detail {title}</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody pb={6}>
-                        {content}
-                        {/* <div>
-                            <div className="font-medium">Database</div>
-                            <Divider />
-                            <div>SQL Server : Formula VCST</div>
-                            <div>PostgreSQL : print_tag_ac</div>
-                        </div>
-                        <br></br>
-                        <div>
-                            <div className="font-medium">Framework & Library</div>
-                            <Divider />
-                            <div>Django</div>
-                            <div>PostgreSQL : print_tag_ac</div>
-                        </div> */}
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
                     </ModalBody>
 
                     <ModalFooter>
