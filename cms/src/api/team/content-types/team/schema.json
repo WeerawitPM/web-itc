@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "companies",
+  "collectionName": "teams",
   "info": {
-    "singularName": "company",
-    "pluralName": "companies",
-    "displayName": "Company",
+    "singularName": "team",
+    "pluralName": "teams",
+    "displayName": "Team",
     "description": ""
   },
   "options": {
@@ -16,6 +16,9 @@
       "type": "string",
       "required": true
     },
+    "position": {
+      "type": "string"
+    },
     "image": {
       "type": "media",
       "multiple": false,
@@ -26,6 +29,9 @@
         "videos",
         "audios"
       ]
+    },
+    "description": {
+      "type": "text"
     },
     "sequent": {
       "type": "integer",

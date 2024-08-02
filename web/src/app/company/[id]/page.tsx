@@ -89,9 +89,9 @@ export default async function Home({ params }: Props) {
                         }) => (
                             <CardComponent
                                 key={website.id}
-                                href={website.attributes.url}
-                                src={website.attributes.image?.data?.attributes?.url ? `http://localhost:1337${website.attributes.image.data.attributes.url}` : "/default-image.jpg"}
-                                title={website.attributes.title}
+                                href={website.attributes.url || "No content available" }
+                                src={website.attributes.image?.data?.attributes?.url ? `http://localhost:1337${website.attributes.image.data.attributes.url}` : "/assets/images/not-found.png"}
+                                title={website.attributes.title || "No content available"}
                                 content={website.attributes.website_detail?.data?.attributes?.content || "No content available"}
                                 detail={Detail}
                             />

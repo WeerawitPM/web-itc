@@ -17,7 +17,7 @@ export default async function Company() {
     // Sort the data based on the 'sequent' attribute
     const sortedData = data.sort((a: any, b: any) => a.attributes.sequent - b.attributes.sequent);
     return (
-        <section id="services" className="services pt-5 pb-10">
+        <section id="services" className="services pt-16 pb-24">
             <div className="container mx-auto text-center mb-12" data-aos="fade-up">
                 <h2 className="text-3xl font-bold mb-4">Our Company Website</h2>
                 <p className="text-lg text-gray-700">
@@ -26,7 +26,7 @@ export default async function Company() {
             </div>
 
             <div className="container mx-auto">
-                <div className="grid grid-cols-5 gap-4 justify-center items-center mt-4 mx-10">
+                <div className="grid grid-cols-5 gap-4 justify-center items-center mt-4 mx-10" data-aos="fade-up" data-aos-delay="300">
                     {
                         sortedData.map((company: {
                             id: string;
@@ -36,7 +36,11 @@ export default async function Company() {
                             }
                         }, index: any) => (
                             <div key={index}>
-                                <Card src={`http://localhost:1337${company.attributes.image.data.attributes.url}`} href={`/company/${company.id}`} name={company.attributes.name} />
+                                <Card
+                                    src={company.attributes.image?.data?.attributes?.url ? `http://localhost:1337${company.attributes.image.data.attributes.url}` : "/assets/images/not-found.png"}
+                                    href={`/company/${company.id}`}
+                                    name={company.attributes.name}
+                                />
                             </div>
                         ))
                     }

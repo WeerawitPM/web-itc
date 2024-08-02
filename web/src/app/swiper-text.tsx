@@ -10,7 +10,7 @@ export default function SwiperText() {
 
     return (
         <section id="clients" className="clients section bg-gray-100 py-5">
-            <div className="container mx-auto text-4xl font-bold text-foreground-600">
+            <div className="container mx-auto text-4xl font-bold text-red-400 text-center">
                 <Swiper
                     loop={true}
                     autoplay={{
