@@ -8,7 +8,7 @@ type Props = {
     src: string;
     title: string;
     content: string;
-detail: React.FC<{ title: string; content: string }>; // Adjusted type
+    detail: React.FC<{ title: string; content: string }>; // Adjusted type
 };
 
 export default function CardComponent({ href, src, title, content, detail: Detail }: Props) {
@@ -16,7 +16,9 @@ export default function CardComponent({ href, src, title, content, detail: Detai
         <div className="d-flex text-center">
             <Card className="w-[270px]" isPressable isHoverable radius="sm">
                 <CardBody >
-                    <Image src={src} width={200} height={200} unoptimized alt='image' className="object-cover w-[100%] h-[100px]" />
+                    <div className="w-fit mx-auto my-auto">
+                        <Image src={src} width={150} height={150} unoptimized alt='image' className="object-cover w-[100%] h-[150px]" />
+                    </div>
                 </CardBody>
                 <CardFooter>
                     <div className="flex flex-col h-16">

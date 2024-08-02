@@ -32,8 +32,25 @@ export default function Navbar() {
         >
             <div className="container mx-auto flex items-center justify-between px-4 py-3">
                 <Link href="/">
-                    <h1 className="text-2xl font-bold text-white my-auto">ITC CENTER</h1>
+                    <h1 className="text-2xl font-bold text-white my-auto justify-start">ITC CENTER</h1>
                 </Link>
+                <nav id="navmenu" className="hidden md:flex md:items-center md:space-x-6 justify-end">
+                    <Link href="#hero">
+                        <div className="text-white hover:text-[#47b2e4]">Home</div>
+                    </Link>
+                    <Link href="#about">
+                        <div className="text-white hover:text-[#47b2e4]">About</div>
+                    </Link>
+                    <Link href="#services">
+                        <div className="text-white hover:text-[#47b2e4]">Services</div>
+                    </Link>
+                    <Link href="#team">
+                        <div className="text-white hover:text-[#47b2e4]">Team</div>
+                    </Link>
+                    <Link href="#contact">
+                        <div className="text-white hover:text-[#47b2e4]">Contact</div>
+                    </Link>
+                </nav>
 
                 <button className="md:hidden text-gray-700 focus:outline-none">
                     <i className="bi bi-list"></i>

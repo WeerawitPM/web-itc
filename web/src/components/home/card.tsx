@@ -8,7 +8,7 @@ type Props = {
 }
 export default function Card({ src, href, name }: Props) {
     return (
-        <div className="rounded-lg w-fit shadow-sm p-2 bg-white">
+        <div className="rounded-lg w-fit shadow-md p-2 bg-white">
             <Link href={{
                 pathname: href,
                 query: {
