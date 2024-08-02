@@ -61,12 +61,14 @@ export default async function Home({ params }: Props) {
         website.attributes.company?.data?.id === Number(params.id)
     );
 
+    const companyName = filteredData.length > 0 ? filteredData[0].attributes.company.data.attributes.name : "Company List";
+
     return (
         <>
-            <Header title="Company List" />
-            <main className="bg-gray-100 h-screen">
+            <Header title={companyName} />
+            <main className="h-screen">
                 <section id="services" className="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 py-5">
-                    <div className="flex flex-row flex-wrap justify-center gap-10">
+                    <div className="flex flex-row flex-wrap justify-start gap-10">
                         {filteredData.map((website: {
                             id: string;
                             attributes: {

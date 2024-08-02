@@ -22,7 +22,7 @@ export default function CardComponent({ href, src, title, content, detail: Detai
                     <div className="flex flex-col h-16">
                         <div className="text-start font-bold">{title}</div>
                         <div className="flex gap-2 justify-center align-middle mt-2">
-                            <Link href={href} target="_blank"><Button size="sm" radius="lg" className="bg-[#388da8] text-white">Visit</Button></Link>
+                            <Link href={href} target="_blank"><Button size="sm" radius="lg" className="accent-color text-white">Visit</Button></Link>
                             <Detail title={title} content={content} />
                             <Button size="sm" radius="lg" disabled>Tutorial</Button>
                         </div>

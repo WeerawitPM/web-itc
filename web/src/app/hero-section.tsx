@@ -1,44 +1,76 @@
+"use client"
+import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import AOS from "aos";
+import { useEffect } from "react";
+
 export default function Hero() {
-    return(
-        <section id="hero" className="hero section relative bg-gray-100 py-20">
-        <div className="absolute inset-0 w-full h-full z-0 hero-bg">
-          <Image src="/assets/images/hero-bg-light.webp" alt="" width={100} height={100} quality={100} unoptimized />
-        </div>
-        <div className="container mx-auto text-center relative z-10">
-          <div className="flex flex-col justify-center items-center space-y-4">
-            <h1 data-aos="fade-up" className="text-5xl font-bold text-gray-700">
-              Welcome to <span className="text-[#388da8]">ITC Center</span>
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+    });
+  }, []);
+
+  return (
+    <section id="hero" className="hero section hero-color text-white flex">
+      <div className="container mx-auto py-7">
+        <div className="flex flex-col lg:flex-row items-center lg:space-x-8 space-y-8 lg:space-y-0">
+          <div
+            className="lg:w-1/2 order-2 lg:order-1 flex flex-col justify-center"
+            data-aos="zoom-out"
+          >
+            <h1 className="text-5xl font-bold mb-4">
+              Better Solutions For Your Business
             </h1>
-            <p data-aos="fade-up" data-aos-delay="100" className="text-lg text-gray-600">
-              Quickly start your project now and set the stage for success
-              <br />
+            <p className="mb-8 font-bold text-xl text-gray-300">
+              We are a team of talented designers making websites with Bootstrap
             </p>
-            <div className="flex space-x-4" data-aos="fade-up" data-aos-delay="200">
-              <a href="#about" className="btn-get-started accent-color text-white py-2 px-4 rounded-full">
-                Get Started
-              </a>
+            <div className="flex space-x-4">
+              <Link href="#about">
+                <div className="btn-get-started accent-color text-white px-4 py-2 rounded-full transition">
+                  Get Started
+                </div>
+              </Link>
               <a
                 href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-                className="glightbox btn-watch-video flex items-center text-gray-700 hover:text-[#388da8]"
+                className="glightbox btn-watch-video flex items-center text-white hover:text-[#47b2e4] transition"
               >
-                <i className="bi bi-play-circle text-2xl mr-2"></i>
-                <span>Watch Video</span>
+                <i className="bi bi-play-circle text-2xl"></i>
+                <span className="ml-2">Watch Video</span>
               </a>
             </div>
-            <Image
-              src="/assets/images/hero-services-img.webp"
-              className="img-fluid hero-img mt-10"
-              alt=""
-              data-aos="zoom-out"
-              data-aos-delay="300"
-              width={600}
-              height={400}
-              quality={100}
-              unoptimized
-            />
+          </div>
+          <div
+            className="lg:w-1/2 order-1 lg:order-2"
+            data-aos="zoom-out"
+            data-aos-delay="200"
+          >
+            <motion.div
+              className="img-fluid"
+              animate={{
+                y: ["0px", "-20px", "0px"], // เคลื่อนที่ขึ้นและลง
+              }}
+              transition={{
+                duration: 5, // ระยะเวลาในการเคลื่อนที่
+                repeat: Infinity, // ทำการเคลื่อนที่ซ้ำไปเรื่อยๆ
+                repeatType: "loop", // การทำซ้ำแบบลูป
+                ease: "easeInOut", // ความเร็วของการเคลื่อนที่
+              }}
+            >
+              <Image
+                src="/assets/images/hero-services-img.webp"
+                alt="Hero Image"
+                width={500}
+                height={500}
+                unoptimized
+              />
+            </motion.div>
           </div>
         </div>
-      </section>
-    );
+      </div>
+    </section>
+  );
 }
