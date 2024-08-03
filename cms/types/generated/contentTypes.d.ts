@@ -821,6 +821,40 @@ export interface ApiCompanyCompany extends Schema.CollectionType {
   };
 }
 
+export interface ApiDocumentDocument extends Schema.CollectionType {
+  collectionName: 'documents';
+  info: {
+    singularName: 'document';
+    pluralName: 'documents';
+    displayName: 'document';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required & Attribute.Unique;
+    description: Attribute.Text & Attribute.Required;
+    link: Attribute.String & Attribute.Required;
+    sequent: Attribute.Integer & Attribute.Required & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::document.document',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::document.document',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTeamTeam extends Schema.CollectionType {
   collectionName: 'teams';
   info: {
@@ -942,6 +976,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::company.company': ApiCompanyCompany;
+      'api::document.document': ApiDocumentDocument;
       'api::team.team': ApiTeamTeam;
       'api::website.website': ApiWebsiteWebsite;
       'api::website-detail.website-detail': ApiWebsiteDetailWebsiteDetail;

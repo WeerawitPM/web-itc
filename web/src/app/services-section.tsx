@@ -1,4 +1,32 @@
-export default function Services() {
+import CardComponent from "@/components/document/card";
+import axios from "axios";
+
+const fetchData = async () => {
+    try {
+        const response = await axios.get(`${process.env.STRAPI_BASE_URL}/api/documents?populate=*`);
+        return response.data.data;
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        return [];
+    }
+}
+
+export default async function Services() {
+    const data = await fetchData();
+    const sortedData = data.sort((a: any, b: any) => a.attributes.sequent - b.attributes.sequent);
+    const color = [
+        "bg-cyan-500",
+        "bg-orange-500",
+        "bg-teal-500",
+        "bg-red-500",
+        "bg-indigo-500",
+        "bg-pink-500",
+        "bg-purple-500",
+        "bg-green-500",
+        "bg-yellow-500",
+        "bg-blue-500",
+    ]
+
     return (
         <section id="services" className="services section bg-gray-100 py-16">
             <div className="container mx-auto text-center mb-12" data-aos="fade-up">
@@ -10,83 +38,24 @@ export default function Services() {
 
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div className="service-item bg-cyan-500 text-white p-6 rounded-lg shadow-md relative" data-aos="fade-up" data-aos-delay="100">
-                        <i className="bi bi-activity text-4xl mb-4"></i>
-                        <div>
-                            <h3 className="text-xl font-semibold">Nesciunt Mete</h3>
-                            <p className="text-base mt-2 mb-4">
-                                Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.
-                            </p>
-                            <a href="#" className="text-white underline">
-                                Learn More <i className="bi bi-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div className="service-item bg-orange-500 text-white p-6 rounded-lg shadow-md relative" data-aos="fade-up" data-aos-delay="200">
-                        <i className="bi bi-broadcast text-4xl mb-4"></i>
-                        <div>
-                            <h3 className="text-xl font-semibold">Eosle Commodi</h3>
-                            <p className="text-base mt-2 mb-4">
-                                Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.
-                            </p>
-                            <a href="#" className="text-white underline">
-                                Learn More <i className="bi bi-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div className="service-item bg-teal-500 text-white p-6 rounded-lg shadow-md relative" data-aos="fade-up" data-aos-delay="300">
-                        <i className="bi bi-easel text-4xl mb-4"></i>
-                        <div>
-                            <h3 className="text-xl font-semibold">Ledo Markt</h3>
-                            <p className="text-base mt-2 mb-4">
-                                Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.
-                            </p>
-                            <a href="#" className="text-white underline">
-                                Learn More <i className="bi bi-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div className="service-item bg-red-500 text-white p-6 rounded-lg shadow-md relative" data-aos="fade-up" data-aos-delay="400">
-                        <i className="bi bi-bounding-box-circles text-4xl mb-4"></i>
-                        <div>
-                            <h3 className="text-xl font-semibold">Asperiores Commodi</h3>
-                            <p className="text-base mt-2 mb-4">
-                                Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.
-                            </p>
-                            <a href="#" className="text-white underline">
-                                Learn More <i className="bi bi-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div className="service-item bg-indigo-500 text-white p-6 rounded-lg shadow-md relative" data-aos="fade-up" data-aos-delay="500">
-                        <i className="bi bi-calendar4-week text-4xl mb-4"></i>
-                        <div>
-                            <h3 className="text-xl font-semibold">Velit Doloremque.</h3>
-                            <p className="text-base mt-2 mb-4">
-                                Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.
-                            </p>
-                            <a href="#" className="text-white underline">
-                                Learn More <i className="bi bi-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div className="service-item bg-pink-500 text-white p-6 rounded-lg shadow-md relative" data-aos="fade-up" data-aos-delay="600">
-                        <i className="bi bi-chat-square-text text-4xl mb-4"></i>
-                        <div>
-                            <h3 className="text-xl font-semibold">Dolori Architecto</h3>
-                            <p className="text-base mt-2 mb-4">
-                                Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.
-                            </p>
-                            <a href="#" className="text-white underline">
-                                Learn More <i className="bi bi-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
+                    {
+                        sortedData.map((document: {
+                            id: string;
+                            attributes: {
+                                title: string,
+                                description: string,
+                                link: string,
+                            }
+                        }, index: any) => (
+                            <CardComponent
+                                key={index}
+                                color={color[index]}
+                                title={document?.attributes?.title}
+                                description={document?.attributes?.description}
+                                link={document?.attributes?.link}
+                            />
+                        ))
+                    }
                 </div>
             </div>
         </section>
