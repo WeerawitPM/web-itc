@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Prompt } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import { NextUIProvider } from "@nextui-org/react";
 import { ChakraProvider } from '@chakra-ui/react'
 import "aos/dist/aos.css";
+import Footer from "@/components/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const prompt = Prompt({ subsets: ["thai"], weight: "400" });
 
 export const metadata: Metadata = {
   title: {
@@ -19,12 +20,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
 
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className="scroll-smooth focus:scroll-auto">
+      <body className={prompt.className}>
         <NextUIProvider>
           <ChakraProvider>
             <Navbar />
             {children}
+            <Footer />
           </ChakraProvider>
         </NextUIProvider>
       </body>

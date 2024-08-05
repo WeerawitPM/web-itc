@@ -821,13 +821,46 @@ export interface ApiCompanyCompany extends Schema.CollectionType {
   };
 }
 
-export interface ApiDocumentDocument extends Schema.CollectionType {
-  collectionName: 'documents';
+export interface ApiSectionHomeSectionHome extends Schema.SingleType {
+  collectionName: 'section_homes';
   info: {
-    singularName: 'document';
-    pluralName: 'documents';
-    displayName: 'document';
+    singularName: 'section-home';
+    pluralName: 'section-homes';
+    displayName: 'Section Home';
     description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.Text;
+    description: Attribute.Text;
+    link: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::section-home.section-home',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::section-home.section-home',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiServiceService extends Schema.CollectionType {
+  collectionName: 'services';
+  info: {
+    singularName: 'service';
+    pluralName: 'services';
+    displayName: 'Service';
   };
   options: {
     draftAndPublish: true;
@@ -841,13 +874,13 @@ export interface ApiDocumentDocument extends Schema.CollectionType {
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::document.document',
+      'api::service.service',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::document.document',
+      'api::service.service',
       'oneToOne',
       'admin::user'
     > &
@@ -976,7 +1009,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::company.company': ApiCompanyCompany;
-      'api::document.document': ApiDocumentDocument;
+      'api::section-home.section-home': ApiSectionHomeSectionHome;
+      'api::service.service': ApiServiceService;
       'api::team.team': ApiTeamTeam;
       'api::website.website': ApiWebsiteWebsite;
       'api::website-detail.website-detail': ApiWebsiteDetailWebsiteDetail;

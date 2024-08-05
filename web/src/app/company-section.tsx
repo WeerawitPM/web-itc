@@ -17,16 +17,16 @@ export default async function Company() {
     // Sort the data based on the 'sequent' attribute
     const sortedData = data.sort((a: any, b: any) => a.attributes.sequent - b.attributes.sequent);
     return (
-        <section id="services" className="services pt-16 pb-24">
+        <section id="company" className="services pt-16 pb-24">
             <div className="container mx-auto text-center mb-12" data-aos="fade-up">
-                <h2 className="text-3xl font-bold mb-4">Our Company Website</h2>
-                <p className="text-lg text-gray-700">
+                <h2 className="text-3xl font-bold mb-4">Our Companies</h2>
+                {/* <p className="text-lg text-gray-700">
                     Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
-                </p>
+                </p> */}
             </div>
 
             <div className="container mx-auto">
-                <div className="grid grid-cols-5 gap-4 justify-center items-center mt-4 mx-10" data-aos="fade-up" data-aos-delay="300">
+                <div className="flex flex-wrap gap-10 justify-center items-center mt-4 mx-10" data-aos="fade-up" data-aos-delay="300">
                     {
                         sortedData.map((company: {
                             id: string;

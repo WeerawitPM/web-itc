@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "documents",
+  "collectionName": "services",
   "info": {
-    "singularName": "document",
-    "pluralName": "documents",
-    "displayName": "document",
-    "description": ""
+    "singularName": "service",
+    "pluralName": "services",
+    "displayName": "Service"
   },
   "options": {
     "draftAndPublish": true
@@ -19,8 +18,7 @@
     },
     "description": {
       "type": "text",
-      "required": true,
-      "unique": false
+      "required": true
     },
     "link": {
       "type": "string",

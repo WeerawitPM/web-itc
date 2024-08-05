@@ -6,7 +6,9 @@ import 'swiper/css/autoplay';
 import { Autoplay } from 'swiper/modules';
 
 export default function SwiperText() {
-    const messages = ["Welcome to ITC Center", "Your One-Stop Solution", "Innovative Solutions for You"];
+    const messages = ["Welcome to ITC Center"];
+    // const messages = ["Welcome to ITC Center", "VALUING PEOPLE", "CONTINUOUS IMPROVEMENT", "SYNERGY FOR CORPORATE SUCCESS"];
+    // const messages = ["Welcome to ITC Center", "Your One-Stop Solution", "Innovative Solutions for You"];
 
     return (
         <section id="clients" className="clients section bg-gray-100 py-5">

@@ -21,7 +21,7 @@ export default async function TeamSection() {
             <div className="container mx-auto text-center mb-12" data-aos="fade-up">
                 <h2 className="text-3xl font-bold">Team Develop ITC Center</h2>
                 <p className="text-gray-600 mt-4">
-                    ทีมนักพัฒนาระบบซอฟแวร์เพื่อเหมาะสมกับองค์กร
+                    ทีมนักพัฒนาระบบซอฟแวร์
                 </p>
             </div>
             {/* End Section Title */}

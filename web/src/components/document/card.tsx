@@ -15,7 +15,7 @@ export default function CardComponent({ key, color, title, description, link }: 
             <div>
                 <h3 className="text-xl font-semibold">{title}</h3>
                 <p className="text-base mt-2 mb-4">{description}</p>
-                <Link href={link} className="text-white underline" target="_blank">Learn More <i className="bi bi-arrow-right ml-1"></i></Link>
+                <Link href={link} className="text-white underline" target="_blank">Open form <i className="bi bi-arrow-right ml-1"></i></Link>
             </div>
         </div>
     )

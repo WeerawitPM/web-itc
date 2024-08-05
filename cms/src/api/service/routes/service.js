@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * document router
+ * service router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::document.document');
+module.exports = createCoreRouter('api::service.service');

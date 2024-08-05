@@ -1,8 +1,13 @@
-"use client"
-import { useEffect, useState } from "react";
-import Link from "next/link";
+"use client";
+import React from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link } from "@nextui-org/react";
+import Image from "next/image";
 
-export default function Navbar() {
+export default function CustomNavbar() {
+    const pathname = usePathname();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -24,38 +29,88 @@ export default function Navbar() {
         };
     }, []);
 
-    return (
-        <header
-            id="header"
-            className={`fixed top-0 w-full z-50 py-4 transition-colors duration-300 ${scrolled ? "scroll" : "heading-color"
-                }`}
-        >
-            <div className="container mx-auto flex items-center justify-between px-4 py-3">
-                <Link href="/">
-                    <h1 className="text-2xl font-bold text-white my-auto justify-start">ITC CENTER</h1>
-                </Link>
-                <nav id="navmenu" className="hidden md:flex md:items-center md:space-x-6 justify-end">
-                    <Link href="#hero">
-                        <div className="text-white hover:text-[#47b2e4]">Home</div>
-                    </Link>
-                    <Link href="#about">
-                        <div className="text-white hover:text-[#47b2e4]">About</div>
-                    </Link>
-                    <Link href="#services">
-                        <div className="text-white hover:text-[#47b2e4]">Services</div>
-                    </Link>
-                    <Link href="#team">
-                        <div className="text-white hover:text-[#47b2e4]">Team</div>
-                    </Link>
-                    <Link href="#contact">
-                        <div className="text-white hover:text-[#47b2e4]">Contact</div>
-                    </Link>
-                </nav>
+    const menuItems = [
+        { name: "Home", href: pathname === "/" ? "#home" : "/" },
+        { name: "Company", href: "#company" },
+        { name: "Service", href: "#service" },
+        { name: "Team", href: "#team" },
+    ];
 
-                <button className="md:hidden text-gray-700 focus:outline-none">
-                    <i className="bi bi-list"></i>
-                </button>
-            </div>
-        </header>
+    const handleMenuItemClick = () => {
+        setIsMenuOpen(false);
+    };
+
+    return (
+        <Navbar
+            id="header"
+            maxWidth="xl" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} isBlurred={false}
+            className={`fixed top-0 py-4 transition-colors duration-300 ${scrolled ? "heading-color" : "heading-color"}`}>
+            <NavbarContent>
+                <NavbarMenuToggle
+                    aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                    className="md:hidden text-white"
+                />
+                <NavbarBrand className="flex items-center">
+                    <Link href="/">
+                        <Image
+                            src="/assets/images/vcs-group-light.png"
+                            alt="Logo"
+                            width={62}
+                            height={45}
+                            quality={100}
+                            priority
+                            unoptimized
+                        />
+                        <h1 className="text-2xl font-bold text-white my-auto ms-2">ITC CENTER</h1>
+                    </Link>
+                </NavbarBrand>
+            </NavbarContent>
+
+            <NavbarContent className="hidden md:flex md:items-center md:space-x-6" justify="end">
+                {pathname === "/" ? (
+                    <>
+                        <NavbarItem>
+                            <Link href="#home" className="text-white hover:text-[#47b2e4]">Home</Link>
+                        </NavbarItem>
+                        <NavbarItem>
+                            <Link href="#company" className="text-white hover:text-[#47b2e4]">Company</Link>
+                        </NavbarItem>
+                        <NavbarItem>
+                            <Link href="#services" className="text-white hover:text-[#47b2e4]">Service</Link>
+                        </NavbarItem>
+                        <NavbarItem>
+                            <Link href="#team" className="text-white hover:text-[#47b2e4]">Team</Link>
+                        </NavbarItem>
+                    </>
+                ) : (
+                    <NavbarItem>
+                        <Link href="/" className="text-white hover:text-[#47b2e4]">Home</Link>
+                    </NavbarItem>
+                )}
+            </NavbarContent>
+
+            <NavbarMenu className="pt-10">
+                {pathname !== "/"
+                    ? (
+                        <NavbarMenuItem key="Home">
+                            <Link href="/" className="w-full text-foreground" size="lg">
+                                Home
+                            </Link>
+                        </NavbarMenuItem>
+                    )
+                    : menuItems.map((item, index) => (
+                        <NavbarMenuItem key={`${item.name}-${index}`}>
+                            <Link
+                                href={item.href}
+                                className="w-full text-foreground"
+                                size="lg"
+                                onClick={handleMenuItemClick}
+                            >
+                                {item.name}
+                            </Link>
+                        </NavbarMenuItem>
+                    ))}
+            </NavbarMenu>
+        </Navbar>
     );
 }

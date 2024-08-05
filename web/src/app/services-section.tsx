@@ -3,7 +3,7 @@ import axios from "axios";
 
 const fetchData = async () => {
     try {
-        const response = await axios.get(`${process.env.STRAPI_BASE_URL}/api/documents?populate=*`);
+        const response = await axios.get(`${process.env.STRAPI_BASE_URL}/api/services?populate=*`);
         return response.data.data;
     } catch (error) {
         console.error("Error fetching data:", error);
@@ -28,11 +28,11 @@ export default async function Services() {
     ]
 
     return (
-        <section id="services" className="services section bg-gray-100 py-16">
+        <section id="service" className="services section bg-gray-100 py-16">
             <div className="container mx-auto text-center mb-12" data-aos="fade-up">
                 <h2 className="text-3xl font-bold mb-4">Services</h2>
                 <p className="text-lg text-gray-700">
-                    Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
+                    แบบฟอร์มเอกสาร และซอฟแวร์ภายในองค์กร
                 </p>
             </div>
 
@@ -49,7 +49,7 @@ export default async function Services() {
                         }, index: any) => (
                             <CardComponent
                                 key={index}
-                                color={color[index]}
+                                color={color[index % color.length]}
                                 title={document?.attributes?.title}
                                 description={document?.attributes?.description}
                                 link={document?.attributes?.link}

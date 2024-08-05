@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * document controller
+ * service controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::document.document');
+module.exports = createCoreController('api::service.service');
