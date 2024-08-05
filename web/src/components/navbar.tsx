@@ -76,7 +76,7 @@ export default function CustomNavbar() {
                             <Link href="#company" className="text-white hover:text-[#47b2e4]">Company</Link>
                         </NavbarItem>
                         <NavbarItem>
-                            <Link href="#services" className="text-white hover:text-[#47b2e4]">Service</Link>
+                            <Link href="#service" className="text-white hover:text-[#47b2e4]">Service</Link>
                         </NavbarItem>
                         <NavbarItem>
                             <Link href="#team" className="text-white hover:text-[#47b2e4]">Team</Link>
