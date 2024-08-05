@@ -43,7 +43,7 @@ export default async function TeamSection() {
                                 <CardComponent
                                     name={team?.attributes?.name}
                                     position={team?.attributes?.position}
-                                    src={team.attributes.image?.data?.attributes?.url ? `${process.env.STRAPI_BASE_URL}${team?.attributes?.image?.data?.attributes?.url}` : "/assets/images/not-found.png"}
+                                    src={team.attributes.image?.data?.attributes?.url ? `${process.env.STRAPI_BASE_IMAGE}${team?.attributes?.image?.data?.attributes?.url}` : "/assets/images/not-found.png"}
                                     description={team?.attributes?.description}
                                 />
                             </div>
