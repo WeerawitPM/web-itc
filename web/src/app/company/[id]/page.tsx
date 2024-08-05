@@ -90,7 +90,7 @@ export default async function Home({ params }: Props) {
                             <CardComponent
                                 key={website.id}
                                 href={website.attributes.url || "No content available" }
-                                src={website.attributes.image?.data?.attributes?.url ? `http://localhost:1337${website.attributes.image.data.attributes.url}` : "/assets/images/not-found.png"}
+                                src={website.attributes.image?.data?.attributes?.url ? `${process.env.STRAPI_BASE_URL}${website.attributes.image.data.attributes.url}` : "/assets/images/not-found.png"}
                                 title={website.attributes.title || "No content available"}
                                 content={website.attributes.website_detail?.data?.attributes?.content || "No content available"}
                                 detail={Detail}

@@ -37,7 +37,7 @@ export default async function Company() {
                         }, index: any) => (
                             <div key={index}>
                                 <Card
-                                    src={company.attributes.image?.data?.attributes?.url ? `http://localhost:1337${company.attributes.image.data.attributes.url}` : "/assets/images/not-found.png"}
+                                    src={company.attributes.image?.data?.attributes?.url ? `${process.env.STRAPI_BASE_URL}${company.attributes.image.data.attributes.url}` : "/assets/images/not-found.png"}
                                     href={`/company/${company.id}`}
                                     name={company.attributes.name}
                                 />
