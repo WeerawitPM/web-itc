@@ -26,7 +26,7 @@ export default function Hero({ data }: Props) {
   const title = data?.attributes?.title || "Not available";
   const description = data?.attributes?.description || "Not available";
   const link = data?.attributes?.link || "Not available";
-  const imageUrl = data.attributes.image?.data?.attributes?.url ? `${process.env.STRAPI_BASE_IMAGE}${data?.attributes?.image?.data?.attributes?.url}` : "/assets/images/not-found.png";
+  const imageUrl = data?.attributes?.image?.data?.attributes?.url ? `${process.env.STRAPI_BASE_IMAGE}${data?.attributes?.image?.data?.attributes?.url}` : "/assets/images/not-found.png";
 
   useEffect(() => {
     AOS.init({

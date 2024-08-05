@@ -102,3 +102,6 @@ export default async function Home({ params }: Props) {
         </>
     );
 }
+
+// ISR ฟังก์ชันสำหรับการรีเฟรชข้อมูลใหม่
+export const revalidate = 10; // กำหนดเวลาการรีเฟรชข้อมูลเป็นทุก ๆ 10 วินาที
