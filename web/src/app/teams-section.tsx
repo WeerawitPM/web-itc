@@ -18,7 +18,7 @@ export default async function TeamSection() {
     return (
         <section id="team" className="bg-white py-16">
             {/* Section Title */}
-            <div className="container mx-auto text-center mb-12" data-aos="fade-up">
+            <div className="mx-auto text-center mb-12" data-aos="fade-up">
                 <h2 className="text-3xl font-bold">Team Develop ITC Center</h2>
                 <p className="text-gray-600 mt-4">
                     ทีมนักพัฒนาระบบซอฟแวร์
@@ -26,7 +26,7 @@ export default async function TeamSection() {
             </div>
             {/* End Section Title */}
 
-            <div className="container mx-auto">
+            <div className="mx-auto lg:px-28 md:px-16 sm:px-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up" data-aos-delay="300">
                     {/* Team Member */}
                     {

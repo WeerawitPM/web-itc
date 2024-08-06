@@ -28,15 +28,15 @@ export default async function Services() {
     ]
 
     return (
-        <section id="service" className="services section bg-gray-100 py-16">
-            <div className="container mx-auto text-center mb-12" data-aos="fade-up">
+        <section id="service" className="bg-gray-100 py-16">
+            <div className="mx-auto text-center mb-12" data-aos="fade-up">
                 <h2 className="text-3xl font-bold mb-4">Services</h2>
                 <p className="text-lg text-gray-700">
                     แบบฟอร์มเอกสาร และซอฟแวร์ภายในองค์กร
                 </p>
             </div>
 
-            <div className="container mx-auto">
+            <div className="mx-auto lg:px-28 md:px-16 sm:px-5" >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     {
                         sortedData.map((document: {
