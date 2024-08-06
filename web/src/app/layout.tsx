@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Prompt } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   },
   description: "This is my home page of ITC Center",
 };
+
+export const viewport: Viewport = {
+  initialScale: 1,
+  width: 'device-width',
+}
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
 

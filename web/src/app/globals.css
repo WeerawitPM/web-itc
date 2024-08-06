@@ -86,3 +86,12 @@ h6 {
 .scroll {
   background-color: rgba(40, 58, 90, 0.9);
 }
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  /* CSS เฉพาะสำหรับ Chrome */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

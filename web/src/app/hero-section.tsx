@@ -36,11 +36,11 @@ export default function Hero({ data }: Props) {
   }, []);
 
   return (
-    <section id="home" className="hero hero-color text-white">
-      <div className="mx-auto py-7">
+    <section id="home" className="hero hero-color text-white flex">
+      <div className="container mx-auto py-7">
         <div className="flex flex-col lg:flex-row items-center lg:space-x-8 space-y-8 lg:space-y-0">
           <div
-            className="lg:w-1/2 order-2 lg:order-1 flex flex-col justify-center px-5"
+            className="lg:w-1/2 order-2 lg:order-1 flex flex-col justify-center"
             data-aos="zoom-out"
           >
             <h1 className="text-5xl font-bold mb-4">
