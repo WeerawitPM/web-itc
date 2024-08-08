@@ -5,9 +5,9 @@ export default function Header({ title }: { title: string }) {
         <header id="header" className="left-0 w-full flex items-center bg-gray-100 mt-[88px] border">
             <div className="container mx-auto flex items-center justify-between px-4 py-4">
 
-                <Link href="/" className="flex items-center">
+                <div className="flex items-center">
                     <h1 className="text-2xl font-bold text-red-700 my-auto">{title} - Website</h1>
-                </Link>
+                </div>
 
                 {/* <nav id="navmenu" className="hidden md:flex items-center space-x-4">
                     <ul className="flex space-x-4">
