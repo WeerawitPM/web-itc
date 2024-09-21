@@ -15,9 +15,9 @@ type Props = {
 export default function CardComponent({ href, src, title, content, detail: Detail, tutorial }: Props) {
     return (
         <div className="d-flex justify-center">
-            <Card className="w-[270px] h-[350px]" isPressable isHoverable radius="sm">
+            <Card className="w-[250px] h-[280px]" isPressable isHoverable radius="sm">
                 <CardBody className="flex flex-col items-center justify-center">
-                    <Image src={src} width={150} height={150} unoptimized alt='image' className="object-cover w-[150px] h-[150px]" />
+                    <Image src={src} width={100} height={100} unoptimized alt='image' className="object-cover w-[100px] h-[100px]" />
                 </CardBody>
                 <CardFooter className="flex flex-col items-center justify-between">
                     <div className="text-start font-bold">{title}</div>

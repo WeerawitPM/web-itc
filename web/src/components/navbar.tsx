@@ -55,13 +55,13 @@ export default function CustomNavbar() {
                         <Image
                             src="/assets/images/vcs-group-light.png"
                             alt="Logo"
-                            width={62}
-                            height={45}
+                            width={52}
+                            height={35}
                             quality={100}
                             priority
                             unoptimized
                         />
-                        <h1 className="text-2xl font-bold text-white my-auto ms-2">ITC CENTER</h1>
+                        <h1 className="text-xl font-bold text-white my-auto ms-2">ITC CENTER</h1>
                     </Link>
                 </NavbarBrand>
             </NavbarContent>

@@ -16,7 +16,7 @@ export default function Detail({ title, content }: Props) {
         <>
             <NextBtn size="sm" radius="lg" className="accent-color text-white" onClick={onOpen}>Detail</NextBtn>
 
-            <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
+            <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose} size={'5xl'}>
                 <ModalOverlay />
                 <ModalContent>
                     <ModalHeader>Detail {title}</ModalHeader>

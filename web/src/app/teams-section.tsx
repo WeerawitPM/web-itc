@@ -26,7 +26,7 @@ export default async function TeamSection() {
             </div>
             {/* End Section Title */}
 
-            <div className="container mx-auto">
+            <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up" data-aos-delay="300">
                     {/* Team Member */}
                     {

@@ -66,7 +66,7 @@ export default async function Home({ params }: Props) {
     return (
         <>
             <Header title={companyName} />
-            <section id="services" className="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 py-5">
+            <section id="services" className="mx-auto p-4 max-w-[1280px]">
                 <div className="flex flex-row flex-wrap justify-center gap-10">
                     {filteredData.map((website: {
                         id: string;
