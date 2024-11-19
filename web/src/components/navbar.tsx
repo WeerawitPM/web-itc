@@ -81,6 +81,9 @@ export default function CustomNavbar() {
                         <NavbarItem>
                             <Link href="#team" className="text-white hover:text-[#47b2e4]">Team</Link>
                         </NavbarItem>
+                        <NavbarItem>
+                            <Link href="/all_program" className="text-white hover:text-[#47b2e4]">All Program</Link>
+                        </NavbarItem>
                     </>
                 ) : (
                     <NavbarItem>

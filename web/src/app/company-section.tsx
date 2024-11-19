@@ -3,7 +3,7 @@ import axios from "axios";
 
 const fetchData = async () => {
     try {
-        const response = await axios.get(`${process.env.STRAPI_BASE_URL}/api/companies?populate=*`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_BASE_URL}/api/companies?populate=*`);
         return response.data.data;
     } catch (error) {
         console.error("Error fetching data:", error);
@@ -37,7 +37,7 @@ export default async function Company() {
                         }, index: any) => (
                             <div key={index}>
                                 <Card
-                                    src={company.attributes.image?.data?.attributes?.url ? `${process.env.STRAPI_BASE_IMAGE}${company.attributes.image.data.attributes.url}` : "/assets/images/not-found.png"}
+                                    src={company.attributes.image?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_BASE_IMAGE}${company.attributes.image.data.attributes.url}` : "/assets/images/not-found.png"}
                                     href={`/company/${company.id}`}
                                     name={company.attributes.name}
                                 />

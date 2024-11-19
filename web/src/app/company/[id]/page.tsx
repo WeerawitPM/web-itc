@@ -20,7 +20,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 
 const fetchData = async () => {
     try {
-        const response = await axios.get(`${process.env.STRAPI_BASE_URL}/api/websites?pagination[pageSize]=1000&populate=*`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_BASE_URL}/api/websites?pagination[pageSize]=1000&populate=*`);
         return response.data.data;
     } catch (error) {
         console.error("Error fetching data:", error);
@@ -90,7 +90,7 @@ export default async function Home({ params }: Props) {
                             key={website.id}
                             href={website.attributes.url || "No content available"}
                             tutorial={website.attributes.tutorial || "No content available"}
-                            src={website.attributes.image?.data?.attributes?.url ? `${process.env.STRAPI_BASE_IMAGE}${website.attributes.image.data.attributes.url}` : "/assets/images/not-found.png"}
+                            src={website.attributes.image?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_BASE_IMAGE}${website.attributes.image.data.attributes.url}` : "/assets/images/not-found.png"}
                             title={website.attributes.title || "No content available"}
                             content={website.attributes.website_detail?.data?.attributes?.content || "No content available"}
                             detail={Detail}

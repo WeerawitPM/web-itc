@@ -3,7 +3,7 @@ import CardComponent from '@/components/teams/card';
 
 const fetchData = async () => {
     try {
-        const response = await axios.get(`${process.env.STRAPI_BASE_URL}/api/teams?populate=*`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_BASE_URL}/api/teams?populate=*`);
         return response.data.data;
     } catch (error) {
         console.error("Error fetching data:", error);
@@ -43,7 +43,7 @@ export default async function TeamSection() {
                                 <CardComponent
                                     name={team?.attributes?.name}
                                     position={team?.attributes?.position}
-                                    src={team.attributes.image?.data?.attributes?.url ? `${process.env.STRAPI_BASE_IMAGE}${team?.attributes?.image?.data?.attributes?.url}` : "/assets/images/not-found.png"}
+                                    src={team.attributes.image?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_BASE_IMAGE}${team?.attributes?.image?.data?.attributes?.url}` : "/assets/images/not-found.png"}
                                     description={team?.attributes?.description}
                                 />
                             </div>

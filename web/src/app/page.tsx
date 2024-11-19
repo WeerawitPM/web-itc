@@ -7,7 +7,7 @@ import axios from "axios";
 
 const fetchData = async () => {
   try {
-    const response = await axios.get(`${process.env.STRAPI_BASE_URL}/api/section-home?populate=*`);
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_BASE_URL}/api/section-home?populate=*`);
     return response.data.data;
   } catch (error) {
     console.error("Error fetching data:", error);
