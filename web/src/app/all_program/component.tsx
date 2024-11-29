@@ -7,7 +7,7 @@ import { Select } from '@chakra-ui/react'
 
 export default function Component({ data, companyData }: { data: any[]; companyData: any[]; }) {
     const STRAPI_BASE_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_IMAGE;
-    console.log(STRAPI_BASE_URL);
+    // console.log(STRAPI_BASE_URL);
     const [selectedCompany, setSelectedCompany] = useState(""); // สถานะสำหรับเก็บ companyId ที่เลือก
 
     // ฟังก์ชันจัดการเมื่อผู้ใช้เลือกบริษัท
