@@ -1,5 +1,11 @@
 import axios from "axios";
-import Component from "./component";
+import Content from "./content";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "All Software",
+    description: "this is a list of all the software",
+};
 
 const fetchData = async () => {
     try {
@@ -23,11 +29,10 @@ const fetchCompanyData = async () => {
 
 export default async function Home() {
     const data = await fetchData();
-    const companyData = await fetchCompanyData();
-
+    const companies = await fetchCompanyData();
     return (
-        <Component data={data} companyData={companyData}  />
+        <section className="relative pt-32 pb-5 dark:bg-gray-950 flex flex-col">
+            <Content data={data} companies={companies} />
+        </section>
     )
 }
-
-export const revalidate = 10; // กำหนดเวลาการรีเฟรชข้อมูลเป็นทุก ๆ 10 วินาที
