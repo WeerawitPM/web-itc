@@ -93,6 +93,11 @@ export default function Navbar() {
                                     All Programs
                                 </Link>
                             </li>
+                            <li>
+                                <Link href="http://192.168.20.16:8004" className="duration-300 font-medium ease-linear hover:text-blue-600 py-3" target='_blank'>
+                                    Project Plan
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                     <div className="min-w-max flex items-center gap-x-3">
