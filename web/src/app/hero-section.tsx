@@ -19,7 +19,7 @@ export default function HeroSection({ title, description, imageUrl }: Props) {
                     <span className="w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-blue-600 to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-40 skew-x-12 rotate-90" />
                     <div className="my-auto relative flex flex-col items-center text-center lg:text-left lg:py-7 xl:py-8 
       lg:items-start lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2">
-                        <h1 className="text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight
+                        <h1 className="text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-5xl/tight
    font-bold text-gray-900 dark:text-white">
                             {/* Social Media <span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-blue-600 via-30% to-green-600">Marketing </span>
                             is the Best Ever. */}

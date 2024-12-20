@@ -55,7 +55,7 @@ export default function Navbar() {
                                 <span className="absolute w-2 h-2 rounded-full bg-gray-900 dark:bg-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                             </div> */}
                             <div className="inline-flex text-lg font-semibold text-gray-900 dark:text-white">
-                                IT Center
+                                ITC CENTER DEVELOPER
                             </div>
                         </Link>
                     </div>

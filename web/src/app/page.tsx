@@ -15,7 +15,7 @@ const fetchData = async () => {
   try {
     const section = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_BASE_URL}/api/section-home?populate=*`);
     const companies = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_BASE_URL}/api/companies?populate=*`);
-    const services = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_BASE_URL}/api/services?populate=*`);
+    const services = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_BASE_URL}/api/services?pagination[pageSize]=1000&populate=*`);
     const teams = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_BASE_URL}/api/teams?populate=*`);
     return [section.data.data, companies.data.data, services.data.data, teams.data.data];
   } catch (error) {
